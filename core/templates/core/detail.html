@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>{{ item.title }}</h2>
+<p><strong>Status:</strong> {{ item.get_status_display }}</p>
+<p><strong>Date:</strong> {{ item.date }}</p>
+<p><strong>Location:</strong> {{ item.location }}</p>
+<p><strong>Description:</strong> {{ item.description }}</p>
+<p><strong>Contact:</strong> {{ item.contact }}</p>
+{% if item.photo %}
+  <p><img src="{{ item.photo.url }}" alt="{{ item.title }}" style="max-width: 500px;"></p>
+{% endif %}
+<p><strong>Claimed:</strong> {% if item.claimed %}Yes{% else %}No{% endif %}</p>
+<p><a href="/items/">Back to list</a></p>
+{% endblock %}

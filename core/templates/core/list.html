@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>All Reports</h2>
+<form method="get"><input name="q" placeholder="Search" value="{{ request.GET.q }}"><button>Search</button></form>
+<ul>
+  {% for it in items %}
+    <li><a href="/item/{{ it.pk }}/">{{ it.title }}</a> — {{ it.status }} — {{ it.location }}</li>
+  {% empty %}
+    <li>No reports.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
